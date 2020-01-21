@@ -21,7 +21,7 @@ For this tutorial a Raspberry Pi 3/4 would be fine. You can also use a Pi-Zero i
  * Install [gpiozero](https://gpiozero.readthedocs.io/en/stable/installing.html).
    * GPIO Zero is installed by default in the Raspbian image, but keep this handy.
  * [Identify IP Address of the Pi](https://www.raspberrypi.org/documentation/remote-access/ip-address.md)
-   * If you don't have access to router, use "Resolving `raspberrypi.local` with mDNS" method.
+   * If you don't have access to router, use "**Resolving `raspberrypi.local` with mDNS**" method.
 
 
-Once you have setup the Pi, you should be able to SSH into the pi remotely from your local machine. If you are able to do this, move on to step 1.   
+Once you have setup the Pi, you should be able to SSH into the pi remotely from your local machine. If you are able to do this, move on to step 1.
