@@ -1,5 +1,7 @@
 # Step 0 - Prerequisite
 
+> Approximate time: 30-45 minutes
+
 Before we get started to even work on this tutorial, we need to setup the Pi to even being the process. The folks at [Raspberry Pi Foundation](https://raspberrypi.org) are pretty good with keeping their documentation up to date. The community support surrounding the Pi is also amazing. I'm picking the needed points, and linking to the respective detailed articles on the foundation's website. It should be good to get you started.
 
 > If you have landed on this repository from an email about the hands-on session, then just do this section, and keep your Pi ready for the lab. If you want to finish the whole lab on your own, you are more than welcome. Also refer **"[Getting Started with AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/iot-gs.html)"** guide.
