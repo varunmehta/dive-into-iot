@@ -2,16 +2,30 @@
 
 Welcome to getting started with IoT. This is a simple hands on lab to get you started with AWS IoT on the Raspberry Pi.
 
+> If you have landed on this repository from an email about the hands-on session, then just do [**00 - Prerequisite**](00-prerequisite) section, and keep your Pi ready for the lab. If you want to follow everything on your own, you are more than welcome. Also refer **"[Getting Started with AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/iot-gs.html)"** guide.
+
 ## What will we do in this lab
  * Connect sensors (input)
  * Connect LEDs (output) on the Raspberry Pi
  * Collect data and push to AWS services
  * Push commands to Pi via API Gateway
 
-## Hardware
-  * Raspberry Pi
-  * Photo Light sensor
-  * LED + Resistors
+The sensors and LEDs will be provided during the lab session.
 
-## Steps to Follow
- * ### [Prerequisite](00-prerequisite)
+## Hardware
+  * Raspberry Pi with power supply & SD card
+  * Photo Light sensor (provided during the lab)
+  * LED + Resistors (provided during the lab)
+
+## Steps
+ * **[00 - Prerequisite](00-prerequisite)**
+ * **[01 - Setup IoT Core](01-iot-core)**
+ * **[02 - Setup Hardware](02-hardware)**
+ * **[03 - Build AWS supporting infrastructure](03-infrastructure)**
+ * **[04 - End-to-end connections](04-end-to-end)**
+
+## Conclusion
+
+By the end of this session, you should have a basic idea on how to setup a raspberry pi with AWS IoT and send/receive messages securely over the internet.
+
+There is a lot more information available, about fleet management, RTOS, Greengrass. **[Check the AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/what-is-aws-iot.html)** for more details.
