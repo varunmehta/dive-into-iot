@@ -18,11 +18,11 @@ The sensors and LEDs will be provided during the lab session.
   * LED + Resistors (provided during the lab)
 
 ## Steps
- * **[00 - Prerequisite](00-prerequisite)**
- * **[01 - Setup IoT Core](01-iot-core)**
- * **[02 - Setup Hardware](02-hardware)**
- * **[03 - Build AWS supporting infrastructure](03-infrastructure)**
- * **[04 - End-to-end connections](04-end-to-end)**
+ * **[00 - Prerequisite](/00-prerequisite)**
+ * **[01 - Setup IoT Core](/01-iot-core)**
+ * **[02 - Setup Hardware](/02-hardware)**
+ * **[03 - Build AWS supporting infrastructure](/03-infrastructure)**
+ * **[04 - End-to-end connections](/04-end-to-end)**
 
 ## Conclusion
 
