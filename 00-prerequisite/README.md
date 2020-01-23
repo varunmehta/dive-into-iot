@@ -16,6 +16,12 @@ For this lab a Raspberry Pi 3/4 will be fine. You can also use a Pi-Zero if you 
  * element14.com
  * microcenter.com
 
+### Softwares
+
+We are going to transfer files between the Pi and your local machine. Having these tools in your arsenal helps
+ * `ssh` or [putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+ * `scp` or [WinSCP](https://winscp.net/eng/index.php)
+
 ## Preparing the Pi
 
 We assume you have your trusty raspberry pi with you.
@@ -93,6 +99,8 @@ A more detailed write up for [identifing your IP](https://www.raspberrypi.org/do
    64 bytes from 192.168.1.131: icmp_seq=0 ttl=255 time=2.618 ms
 ```
 
+> We'll be changing the `hostname` of your pi later. In a shared network, where all are called `raspberrypi`, you'll not be able to identify your pi.
+
 ### Use `raspi-config` to change default configuration
 
 Once you know the IP address of your pi, login using `ssh` or `putty`. The default user on Raspbian is `pi` with the password `raspberry`.
@@ -122,15 +130,30 @@ Select your local time zone, starting with the region, e.g. Americas, then selec
 This option sets the country code for your WiFi network. e.g. Change it to `US`
 
 #### Change keyboard layout
+
 This option opens another menu which allows you to select your keyboard layout. It will take a long time to display while it reads all the keyboard types. Changes usually take effect immediately, but may require a reboot.
 
 > After this step a reboot is recommended, before moving on to the last configuration change. This is due to keyboard layout change.
+
+#### Change `hostname`
+Set the visible name for this Pi on a network. This is **VERY IMPORTANT**, else you'll not be able to identify your pi in a shared network, if all are called `raspberrypi`. Ensure you make note of the `hostname`, so after reboot you can search for it again, and connect to it.
+
+> Vist [https://videogamena.me/](https://videogamena.me/) for interesting server names.
 
 #### Change Password
 
 The default user on Raspbian is `pi` with the password `raspberry`. You should change that to something more secure.
 
-## Update all libraries
+## Install & Upgrade libraries
+
+### `vim`
+
+`vi` is installed, but `vim` is easier to work with.
+
+For all other editors. Please refer: [this link](https://xkcd.com/378/)
+```
+sudo apt-get install vim
+```
 
 Now that you have your pi up and running, it is a good idea to update the system
 
