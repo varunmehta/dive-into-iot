@@ -4,20 +4,31 @@ Welcome to getting started with IoT. This is a simple hands on lab to get you st
 
 > If you have landed on this repository from an email about the hands-on session, then just do [**00 - Prerequisite**](00-prerequisite) section, and keep your Pi ready for the lab. If you want to follow everything on your own, you are more than welcome. Also refer **"[Getting Started with AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/iot-gs.html)"** guide.
 
-## What will we do in this lab
+## What do you need ?
+ * [Raspberry Pi](https://raspberrypi.org), with power supply & Class 10 microSD card, [loaded with Rasbian](/00-prerequisite).
+ * A valid AWS account with rights to create IAM roles, and needed AWS services
+   * IAM roles
+   * DynamoDB
+   * Lambda functions
+   * IoT core
+   * API Gateway
+
+> You can always sign up for a free tier account for this lab
+
+#### Additional Hardware ~ provided during the lab
+
+  * [Photo cell](https://www.adafruit.com/product/161)
+  * [LEDs](https://www.adafruit.com/product/4202)
+
+### What will we do in this lab
  * Connect sensors (input)
  * Connect LEDs (output) on the Raspberry Pi
  * Collect data and push to AWS services
  * Push commands to Pi via API Gateway
 
-The sensors and LEDs will be provided during the lab session.
+![Architecture Overview](dive-into-iot.png)
 
-## Hardware
-  * Raspberry Pi with power supply & SD card
-  * Photo Light sensor (provided during the lab)
-  * LED + Resistors (provided during the lab)
-
-## Steps
+## How To Steps
  * **[00 - Prerequisite](/00-prerequisite)**
  * **[01 - Setup IoT Core](/01-iot-core)**
  * **[02 - Setup Hardware](/02-hardware)**
