@@ -26,7 +26,7 @@ Welcome to getting started with IoT. This is a simple hands on lab to get you st
  * Collect data and push to AWS services
  * Push commands to Pi via API Gateway
 
-![Architecture Overview](dive-into-iot.png)
+![Architecture Overview](03-infrastructure/dive-into-iot.png)
 
 ## How To Steps
  * **[00 - Prerequisite](/00-prerequisite)**
