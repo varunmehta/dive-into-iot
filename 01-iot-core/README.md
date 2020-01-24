@@ -92,6 +92,23 @@ Certificates are what ensures a secure communication between your Pi and the clo
     ```
  * Create a working directory under `/home/pi`, this is where we'll copy our certificates and python code.
  ```
- mkdir -p iot/certs
+ mkdir -p /home/pi/iot/certs
  ```
- * 
+ * Move the downloaded certificates your `private key`, `device certificate`, and a `root certificate authority (CA)` on your local machine to a single empty folder for easier transfer.
+ * `scp` or WinSCP the certificate files to `/home/pi/iot/certs`. Run this on local machine, to transfer to pi.
+ ```
+ cd <certs_folder>
+
+ scp * pi@<YOUR_PI_IP>:~/iot/certs
+ ```
+ * You now have your certificates on the pi
+ * Make symlinks with user friendly names
+ ```
+  ln -s /home/pi/iot/certs/<YOUR_KEY>private.pem.key /home/pi/iot/certs/private.pem.key
+  ln -s /home/pi/iot/certs/<YOUR_KEY>certificate.pem.crt /home/pi/iot/certs/certificate.pem.crt
+ ```
+ * Download the code from `/src` github to your local machine at `/home/pi/iot`
+ ```
+ wget
+ wget
+```

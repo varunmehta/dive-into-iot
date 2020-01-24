@@ -16,7 +16,7 @@ Welcome to getting started with IoT. This is a simple hands on lab to get you st
    * IoT core
    * API Gateway
 
-> You can always sign up for a free tier account for this lab
+> You can always [sign up for a free tier account](https://portal.aws.amazon.com/billing/signup#/start) for this lab
 
 ### Additional Hardware ~ provided during the lab
 
@@ -28,7 +28,6 @@ Welcome to getting started with IoT. This is a simple hands on lab to get you st
 We are going to transfer files between the Pi and your local machine. Having these tools in your arsenal helps
  * `ssh` or [putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
  * `scp` or [WinSCP](https://winscp.net/eng/index.php)
-
 
 ## What will we do ?
  * Connect sensors (input)
