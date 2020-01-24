@@ -107,8 +107,40 @@ Certificates are what ensures a secure communication between your Pi and the clo
   ln -s /home/pi/iot/certs/<YOUR_KEY>private.pem.key /home/pi/iot/certs/private.pem.key
   ln -s /home/pi/iot/certs/<YOUR_KEY>certificate.pem.crt /home/pi/iot/certs/certificate.pem.crt
  ```
- * Download the code from `/src` github to your local machine at `/home/pi/iot`
+ * Download the config.py file from `code/pi/src/config.py` github to your local machine at `/home/pi/iot`
  ```
- wget
- wget
+ wget https://raw.githubusercontent.com/varunmehta/dive-into-iot/master/01-iot-core/code/pi/src/config.py
 ```
+
+### Modify `config.py`
+
+`config.py` has all the modifiable parameters, which are specific to your setup. We'll change some of the parameters as we've set them up for now.
+
+#### End Point URL
+
+Your Thing has an iot end point, it gets assigned a unique id, which is part of the url. Replace the `<URL>` under `HOST_NAME` to the valid id.
+```
+# AWS IoT endpoint settings
+HOST_NAME = "<URL>-ats.iot.us-east-1.amazonaws.com"
+```
+
+#### Verify certificate paths
+
+Just to make things easier, we've already created symlinks to the certs and keys, please ensure the files exist on the path, and the paths specified in the config is valid.
+```
+# Thing certs & keys
+PRIVATE_KEY = "/home/pi/iot/certs/private.pem.key"
+DEVICE_CERT = "/home/pi/iot/certs/certificate.pem.crt"
+ROOT_CERT = "/home/pi/iot/certs/root-CA.crt"
+```
+
+#### MQTT Topics
+Replace `<YOUR_THING_NAME>` with the name of the thing you set in the AWS console.
+```
+# Message settings
+PHOTO_RESISTOR_SENSOR = "$aws/things/<YOUR_THING_NAME>/sensor"
+FLASHER = "$aws/things/<YOUR_THING_NAME>/flasher"
+```
+
+## Next ~ [02 - Setup Hardware](../02-hardware)
+This concludes our setup of the basic IoT Core on the console and Pi. Let do some hardware wiring...
