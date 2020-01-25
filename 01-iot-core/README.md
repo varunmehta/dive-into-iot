@@ -142,5 +142,5 @@ PHOTO_RESISTOR_SENSOR = "$aws/things/<YOUR_THING_NAME>/sensor"
 FLASHER = "$aws/things/<YOUR_THING_NAME>/flasher"
 ```
 
-## Next ~ [02 - Setup Hardware](../02-hardware)
+## Next --> [02 - Setup Hardware](../02-hardware)
 This concludes our setup of the basic IoT Core on the console and Pi. Let do some hardware wiring...
