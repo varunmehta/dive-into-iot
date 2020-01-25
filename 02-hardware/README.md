@@ -14,7 +14,8 @@ A GPIO pin designated as an output pin can be set to high (3.3V) or low (0V).
 ### Inputs
 A GPIO pin designated as an input pin can be read as high (3.3V) or low (0V). This is made easier with the use of internal pull-up or pull-down resistors.
 
-[**Pinout** - https://pinout.xyz/](https://pinout.xyz/) is an awesome site to interactively play with the GPIO pins.
+### Pinouts
+[**https://pinout.xyz**](https://pinout.xyz/) is an awesome site to interactively play with the GPIO pins.
 
 ## Connecting LED & Light Sensor (Photo Resistor Cell) to GPIO
 
