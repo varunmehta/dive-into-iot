@@ -8,13 +8,33 @@ Before we get started to even work on this tutorial, we need to setup the Pi to 
 
 The whole setup should take under an hour, the longest time spent in downloading the image and flashing the SD card.
 
-For this lab a Raspberry Pi 3/4 will be fine. You can also use a Pi-Zero if you are comfortable using the headers and don't need help with WiFi.
+For this lab a Raspberry Pi 3 B+ or 4 (1GB) is recommended. You can also use a Pi Zero W, but you'll have to have male headers attached on the GPIO pins.
 
 ### Where to buy a Raspberry Pi ?
  * amazon.com
  * adafruit.com
  * element14.com
  * microcenter.com
+
+#### Recommended Kits
+
+If it's your first time, I recommended you buy a full kit. Even though Pi Zero is cheaper, a regular Pi 4, will last you a lot longer, and there are tons of other projects you can do using it.
+
+ * [Pi + Power + Case + 32GB microSD card + Micro HDMI to HDMI Cable = $79.99](https://smile.amazon.com/CanaKit-Raspberry-4GB-Starter-Kit/dp/B07V4G63M1/)
+ * [Pi + Power + Case + Micro HDMI to HDMI Cable = $59.99](https://smile.amazon.com/CanaKit-Raspberry-4GB-Basic-Starter/dp/B07VWBHPMM/) (if you already have a microSD card)
+ * [Pi Zero + Headers + Power = $27](https://smile.amazon.com/Vilros-Raspberry-Starter-Power-Premium/dp/B0748MPQT4/) ~ (if you already have a microSD card)
+ * [Pi Zero + Headers + Power + 16 GB microSD card ](https://smile.amazon.com/Vilros-Raspberry-Kit-Premium-Essential-Accessories/dp/B0748M1Z1B) ~ Everything
+
+#### What you need,  recommended configuration for this lab;
+You can also piece meal build your kit. I've tried to list out valid substitutes you can use.
+
+ * $35 - A Raspberry Pi 4 ~ 1GB (you can also buy the 4GB version, if you wish to)
+ * $10 - Fast Charger 15W (5V/3A)
+   - If you have any mobile phone fast charger, check the rating, it it says 5V~3A, it should be good.
+   - Power hubs are generally restricted to 2.5A, so not a great option.
+ * 8GB class 10, microSD card. [SanDisk runs for $6](https://smile.amazon.com/dp/B073K14CVB/)
+
+So if you have a power supply & microSD card, you can just buy a pi and should be good.
 
 ### Softwares
 
@@ -72,8 +92,8 @@ update_config=1
 country=US
 
 network={
- ssid="<Name of your WiFi>"
- psk="<Password for your WiFi>"
+ ssid="ButtonwoodLabs"
+ psk="H0gacHakA"
 }
 ```
 
