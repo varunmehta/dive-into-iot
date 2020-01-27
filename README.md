@@ -25,9 +25,10 @@ Welcome to getting started with IoT. This is a simple hands on lab to get you st
 
 ### Softwares
 
-We are going to transfer files between the Pi and your local machine. Having these tools in your arsenal helps
+We are going to transfer files between the Pi and your local machine, and also test the API. Having these tools in your arsenal helps
  * `ssh` or [putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
  * `scp` or [WinSCP](https://winscp.net/eng/index.php)
+ * `curl` or [Postman](https://www.getpostman.com/downloads/)
 
 ## What will we do ?
  * Connect sensors (input)

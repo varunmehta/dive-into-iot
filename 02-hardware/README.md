@@ -83,3 +83,7 @@ Some of my favourite HATs and pHATs are made by [**Pimoroni**](https://shop.pimo
  * [Inky pHAT](https://shop.pimoroni.com/products/inky-phat?variant=12549254217811)
 
 Most of that HATs and pHATs have their own python library with good examples and community support.
+
+
+## Next --> [03 - Build AWS supporting infrastructure](../03-infrastructure)
+This concludes our hardware wiring. Let build the AWS infrastructure to get to the cloud...
