@@ -18,12 +18,12 @@ For this lab a Raspberry Pi 3 B+ or 4 (1GB) is recommended. You can also use a P
 
 #### Recommended Kits
 
-If it's your first time, I recommended you buy a full kit. Even though Pi Zero is cheaper, a regular Pi 4, will last you a lot longer, and there are tons of other projects you can do using it.
+If it's your first time, I recommended you buy a full kit. Even though Pi Zero is cheaper, **a regular pi 4, will last you a lot longer**, and there are tons of [other projects](https://projects.raspberrypi.org/en/) you can do using it.
 
- * [Pi + Power + Case + 32GB microSD card + Micro HDMI to HDMI Cable = $79.99](https://smile.amazon.com/CanaKit-Raspberry-4GB-Starter-Kit/dp/B07V4G63M1/)
+ * **[Pi + Power + Case + 32GB microSD card + Micro HDMI to HDMI Cable = $79.99](https://smile.amazon.com/CanaKit-Raspberry-4GB-Starter-Kit/dp/B07V4G63M1/) ~ Recommended**
  * [Pi + Power + Case + Micro HDMI to HDMI Cable = $59.99](https://smile.amazon.com/CanaKit-Raspberry-4GB-Basic-Starter/dp/B07VWBHPMM/) (if you already have a microSD card)
- * [Pi Zero + Headers + Power = $27](https://smile.amazon.com/Vilros-Raspberry-Starter-Power-Premium/dp/B0748MPQT4/) ~ (if you already have a microSD card)
- * [Pi Zero + Headers + Power + 16 GB microSD card ](https://smile.amazon.com/Vilros-Raspberry-Kit-Premium-Essential-Accessories/dp/B0748M1Z1B) ~ Everything
+ * [Pi Zero + Headers + Power = $27](https://smile.amazon.com/Vilros-Raspberry-Starter-Power-Premium/dp/B0748MPQT4/) (if you already have a microSD card)
+ * [Pi Zero + Headers + Power + 16 GB microSD card = $35](https://smile.amazon.com/Vilros-Raspberry-Kit-Premium-Essential-Accessories/dp/B0748M1Z1B)
 
 #### What you need,  recommended configuration for this lab;
 You can also piece meal build your kit. I've tried to list out valid substitutes you can use.
