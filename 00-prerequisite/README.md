@@ -35,7 +35,7 @@ You can also build your own kit using parts you already have. I've tried to list
 | [Power Suppy](https://www.microcenter.com/product/608169/-raspberry-pi-4-official-15w-power-supply-us---white)  | Fast Charger 15W (5V/3A) <br />  - If you have any mobile phone fast charger and a USB-C cable, check the rating, it it says 5V~3A, it should be good. <br/> - Power hubs are generally restricted to 2.5A, so not a great option.  |$10   |
 | [microSD card](https://www.microcenter.com/product/486146/-micro-center-16gb-microsdhc-class-10-flash-memory-card)  |  Any 8GB class 10 microSD card should do, format before using. |$4 |
 
-So if you have a power supply & microSD card, you can just buy a pi and should be good.
+If you already have a power supply & microSD card, you should be good with only buying a pi.
 
 ### Softwares
 
@@ -148,7 +148,7 @@ You'll be shown `raspi-config` on first boot, you can also run it from the comma
 sudo raspi-config
 ```
 
-You should see a blue screen with options in a grey box in the centre. [`raspi-config`](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) aims to provide the functionality to make the most common configuration changes.
+You should see a blue screen with options in a grey box in the center. [`raspi-config`](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) aims to provide the functionality to make the most common configuration changes.
 
 
 #### Change locale
