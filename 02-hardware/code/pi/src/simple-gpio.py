@@ -13,7 +13,6 @@ from gpiozero import LED
 from gpiozero import LightSensor
 
 from time import sleep
-from signal import pause
 
 sensor = LightSensor(config.PIN_LIGHT_SENSOR)
 led = LED(config.PIN_LED)
@@ -40,5 +39,3 @@ led_test()
 
 sensor.when_dark = sensor_dark
 sensor.when_light = sensor_light
-
-pause()
