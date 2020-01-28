@@ -4,9 +4,11 @@
 
 ## GPIO Pins
 
-A powerful feature of the Raspberry Pi is the row of **GPIO** (general-purpose input/output) pins along the top edge of the board. A 40-pin GPIO header is found on all current Raspberry Pi (3/4/zero) boards
+A powerful feature of the Raspberry Pi is the row of **GPIO** (general-purpose input/output) pins along the top edge of the board. A 40-pin GPIO header is found on all current Raspberry Pi boards (unpopulated on Pi Zero and Pi Zero W).
 
 Any of the GPIO pins can be designated (in software) as an input or output pin and used for a wide range of purposes.
+
+![GPIO](https://pinout.xyz/resources/raspberry-pi-pinout.png)
 
 ### Outputs
 A GPIO pin designated as an output pin can be set to high (3.3V) or low (0V).

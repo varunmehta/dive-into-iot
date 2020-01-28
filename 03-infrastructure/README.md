@@ -151,5 +151,5 @@ Your API should now send you to a new screen
  * Copy this URL to a text editor. This is the URL, where the API is published.
    * `https://<YOUR_URL>.execute-api.us-east-1.amazonaws.com/lab/flasher`
 
-## Next --> [04 - End-to-end connections](../04-end-to-end)
+## Next --> [04 - Bringing it all together](../04-end-to-end)
 This concludes our AWS infrastructure creation. Time to test the whole thing!

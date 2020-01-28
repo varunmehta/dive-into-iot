@@ -2,37 +2,38 @@
 
 > Approximate time: 30-45 minutes
 
-Before we get started to even work on this tutorial, we need to setup the Pi to begin the process. The folks at [Raspberry Pi Foundation](https://raspberrypi.org) are pretty good with keeping their documentation up to date. The community support surrounding the Pi is also amazing. I'm picking the needed points and linking to the respective detailed articles on the foundation's website. It should be good to get you started.
+Before we get started with this lab, we need to setup the Raspberry Pi with Rasbian. The folks at [Raspberry Pi Foundation](https://raspberrypi.org) are pretty good with keeping their documentation up to date. The community support surrounding the Pi is also amazing. I've documented the process, but also linked the respective articles on the foundation's website. It should be good to get you started.
 
-> If you have landed on this repository from an email about the hands-on session, then just do this section, and keep your Pi ready for the lab. If you want to finish the whole lab on your own, you are more than welcome. Also refer **"[Getting Started with AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/iot-gs.html)"** guide.
+> If you have landed on this repository from an email about the hands-on lab, then just do this section, and keep your Pi ready for the lab. If you want to finish the whole lab on your own, you are more than welcome. Also refer **[Getting Started with AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/iot-gs.html)** guide.
 
-The whole setup should take under an hour, downloading the image and flashing the SD card will take the longest time.
+This whole setup should take under an hour, with the longest time spent in downloading the Rasbian image and flashing the SD card.
 
-For this lab a Raspberry Pi 3 B+ or 4 (1GB) is recommended. You can also use a Pi Zero W, but you'll have to have male headers attached on the GPIO pins.
+For this lab a Raspberry Pi 3 B+ or 4 (1 GB+) is recommended. You can also use a Pi Zero W, but you'll have to have male headers attached on the GPIO pins.
 
 ### Where to buy a Raspberry Pi ?
- * amazon.com
- * adafruit.com
- * element14.com
- * microcenter.com
+
+If this is your first Pi ever, I recommended buying a full preset kit. Even though Pi Zero seems cheaper and will work for this lab, **the regular Pi 4, is way more powerful, and will last you a lot longer**. There are also tons of [other projects](https://projects.raspberrypi.org/en/) you can do with a pi after this lab.
+
+ * https://www.amazon.com
+ * https://www.adafruit.com
+ * https://www.element14.com
+ * https://www.microcenter.com
 
 #### Recommended Kits
 
-If it's your first time, I recommended you buy a full kit. Even though Pi Zero is cheaper, **a regular pi 4, will last you a lot longer**, and there are tons of [other projects](https://projects.raspberrypi.org/en/) you can do.
+Regular Raspberry Pi is just a board, it does not come with a power adapater or microSD card. That's where kits come in handy.
 
  * **[Pi + Power + Case + 32GB microSD card + Micro HDMI to HDMI Cable = $79.99](https://smile.amazon.com/CanaKit-Raspberry-4GB-Starter-Kit/dp/B07V4G63M1/) ~ Recommended**
  * [Pi + Power + Case + Micro HDMI to HDMI Cable = $59.99](https://smile.amazon.com/CanaKit-Raspberry-4GB-Basic-Starter/dp/B07VWBHPMM/) (if you already have a microSD card)
- * [Pi Zero + Headers + Power = $27](https://smile.amazon.com/Vilros-Raspberry-Starter-Power-Premium/dp/B0748MPQT4/) (if you already have a microSD card)
- * [Pi Zero + Headers + Power + 16 GB microSD card = $35](https://smile.amazon.com/Vilros-Raspberry-Kit-Premium-Essential-Accessories/dp/B0748M1Z1B)
 
-#### What you need,  recommended configuration for this lab;
-You can also piece meal build your kit. I've tried to list out valid substitutes you can use.
+#### À la carte (Build your own kit)
+You can also build your own kit using parts you already have. I've tried to list out valid components you can use. All from microcenter. Amazon had it expensive.
 
- * $35 - A Raspberry Pi 4 ~ 1GB (you can also buy the 4GB version, if you wish to)
- * $10 - Fast Charger 15W (5V/3A)
-   - If you have any mobile phone fast charger, check the rating, it it says 5V~3A, it should be good.
-   - Power hubs are generally restricted to 2.5A, so not a great option.
- * 8GB class 10, microSD card. [SanDisk runs for $6](https://smile.amazon.com/dp/B073K14CVB/)
+| Component | Substitute|Cost|
+|-----------|------------|---:|
+| [Raspberry Pi 4](https://www.microcenter.com/product/608166/raspberry-pi-4-model-b---1gb-ddr4)  | You can use a Raspberry Pi 3B+ | $35  |
+| [Power Suppy](https://www.microcenter.com/product/608169/-raspberry-pi-4-official-15w-power-supply-us---white)  | Fast Charger 15W (5V/3A) <br />  - If you have any mobile phone fast charger and a USB-C cable, check the rating, it it says 5V~3A, it should be good. <br/> - Power hubs are generally restricted to 2.5A, so not a great option.  |$10   |
+| [microSD card](https://www.microcenter.com/product/486146/-micro-center-16gb-microsdhc-class-10-flash-memory-card)  |  Any 8GB class 10 microSD card should do, format before using. |$4 |
 
 If you already have a power supply & microSD card, you should be good with only buying a pi.
 
@@ -67,22 +68,21 @@ Since most IoT devices are remote, using the Lite (headless) version is better. 
 
 #### Enable SSH
 
-The latest versions of Rasbian disable SSH access by default.
+[SSH access is disabled by default](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md)
 
 For headless setup, SSH can be enabled by placing a file named ssh, without any extension, onto the boot partition of the SD card from another computer. When the Pi boots, it looks for the ssh file. If it is found, SSH is enabled and the file is deleted. The content of the file does not matter; it could contain text, or nothing at all.
 
-If you have loaded Raspbian onto a blank SD card, you will have two partitions. The first one, which is the smaller one, is the boot partition. Place the file into this one.
+If you have loaded Raspbian onto a blank SD card, you will have two partitions. The first one, which is the smaller one, is the `boot` partition. Place the file into this one.
 
-This method also works for a [GUI based](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) Raspbian too.
+This method also works for a GUI based Raspbian too.
 
-> **WARNING:** Since you are enabling SSH, please ensure you change the default password, else the pi is vunerable on public networks. More on this below
-
+> **WARNING:** Since you are enabling SSH, please ensure you change the default password, else the pi is vunerable on public networks. More on how to do this below
 
 #### Setup WiFi on `/boot` before first boot
 
-If you don't have the wired setup easily accessible, you can also setup [wireless networking](https://www.raspberrypi.org/documentation/configuration/wireless/headless.md) on the pi.
+Setting up [wireless networking](https://www.raspberrypi.org/documentation/configuration/wireless/headless.md) on the pi.
 
-You will need to define a `wpa_supplicant.conf` file for your particular wireless network. Put this file in the /boot folder (same place you put the `ssh` file), and when the Pi first boots, it will copy that file into the correct location in the Linux root file system and use those settings to start up wireless networking.
+You will need to define a `wpa_supplicant.conf` file for your particular wireless network. Put this file in the `/boot` folder (same location you put the `ssh` file), and when the Pi first boots, it will copy the file to the correct location in the Linux root file system and use those settings to start up wireless networking.
 
 `wpa_supplicant.conf` file example:
 
@@ -92,14 +92,25 @@ update_config=1
 country=US
 
 network={
- ssid="ButtonwoodLabs"
- psk="H0gacHakA"
+  ssid="J0hnny5"
+  psk="Short$ircuit"
+  id_str="lab"
+}
+
+network={
+  ssid="<HOME_NETWORK_NAME>"
+  psk="<HOME_PASSWORD>"
+  id_str="home"
 }
 ```
 
+> Substitute `<HOME_NETWORK_NAME>` & `<HOME_PASSWORD>`, with your current accessible local network password.
+
+Keep both the networks configured, they are set in order of preference, if the first is not found, it'll connect to the next available one.
+
 ### Boot, Identify Pi on network
 
-Plug in an ethernet cable into your pi, and wait 1 minute after boot to start looking for the pi on the network
+Plug in the power cable into your pi, and wait 1 minute after boot to start looking for the pi on the network
 
 A more detailed write up for [identifing your IP](https://www.raspberrypi.org/documentation/remote-access/ip-address.md) is documented on the offical website.
 
