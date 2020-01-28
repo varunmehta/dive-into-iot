@@ -2,11 +2,11 @@
 
 > Approximate time: 30-45 minutes
 
-Before we get started to even work on this tutorial, we need to setup the Pi to even being the process. The folks at [Raspberry Pi Foundation](https://raspberrypi.org) are pretty good with keeping their documentation up to date. The community support surrounding the Pi is also amazing. I'm picking the needed points, and linking to the respective detailed articles on the foundation's website. It should be good to get you started.
+Before we get started to even work on this tutorial, we need to setup the Pi to begin the process. The folks at [Raspberry Pi Foundation](https://raspberrypi.org) are pretty good with keeping their documentation up to date. The community support surrounding the Pi is also amazing. I'm picking the needed points and linking to the respective detailed articles on the foundation's website. It should be good to get you started.
 
 > If you have landed on this repository from an email about the hands-on session, then just do this section, and keep your Pi ready for the lab. If you want to finish the whole lab on your own, you are more than welcome. Also refer **"[Getting Started with AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/iot-gs.html)"** guide.
 
-The whole setup should take under an hour, the longest time spent in downloading the image and flashing the SD card.
+The whole setup should take under an hour, downloading the image and flashing the SD card will take the longest time.
 
 For this lab a Raspberry Pi 3 B+ or 4 (1GB) is recommended. You can also use a Pi Zero W, but you'll have to have male headers attached on the GPIO pins.
 
@@ -18,7 +18,7 @@ For this lab a Raspberry Pi 3 B+ or 4 (1GB) is recommended. You can also use a P
 
 #### Recommended Kits
 
-If it's your first time, I recommended you buy a full kit. Even though Pi Zero is cheaper, **a regular pi 4, will last you a lot longer**, and there are tons of [other projects](https://projects.raspberrypi.org/en/) you can do using it.
+If it's your first time, I recommended you buy a full kit. Even though Pi Zero is cheaper, **a regular pi 4, will last you a lot longer**, and there are tons of [other projects](https://projects.raspberrypi.org/en/) you can do.
 
  * **[Pi + Power + Case + 32GB microSD card + Micro HDMI to HDMI Cable = $79.99](https://smile.amazon.com/CanaKit-Raspberry-4GB-Starter-Kit/dp/B07V4G63M1/) ~ Recommended**
  * [Pi + Power + Case + Micro HDMI to HDMI Cable = $59.99](https://smile.amazon.com/CanaKit-Raspberry-4GB-Basic-Starter/dp/B07VWBHPMM/) (if you already have a microSD card)
@@ -34,7 +34,7 @@ You can also piece meal build your kit. I've tried to list out valid substitutes
    - Power hubs are generally restricted to 2.5A, so not a great option.
  * 8GB class 10, microSD card. [SanDisk runs for $6](https://smile.amazon.com/dp/B073K14CVB/)
 
-So if you have a power supply & microSD card, you can just buy a pi and should be good.
+If you already have a power supply & microSD card, you should be good with only buying a pi.
 
 ### Softwares
 
@@ -67,7 +67,7 @@ Since most IoT devices are remote, using the Lite (headless) version is better. 
 
 #### Enable SSH
 
-The latest versions of Rasbian, disable SSH access by default.
+The latest versions of Rasbian disable SSH access by default.
 
 For headless setup, SSH can be enabled by placing a file named ssh, without any extension, onto the boot partition of the SD card from another computer. When the Pi boots, it looks for the ssh file. If it is found, SSH is enabled and the file is deleted. The content of the file does not matter; it could contain text, or nothing at all.
 
@@ -137,7 +137,7 @@ You'll be shown `raspi-config` on first boot, you can also run it from the comma
 sudo raspi-config
 ```
 
-You should see a blue screen with options in a grey box in the centre. [`raspi-config`](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) aims to provide the functionality to make the most common configuration changes.
+You should see a blue screen with options in a grey box in the center. [`raspi-config`](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) aims to provide the functionality to make the most common configuration changes.
 
 
 #### Change locale
