@@ -23,7 +23,7 @@ A GPIO pin designated as an input pin can be read as high (3.3V) or low (0V). Th
 
 > **WARNING:** Ensure the Raspberry Pi powered off, and disconnected from the power supply. The Raspberry Pi GPIO does not have any kind of fuse or protection circuit. If you short circuit your pins, you might damage your GPIO pins or even the Pi, rendering it useless.
 
-![Connection Diagram](pi-led-light-sensor-diagram.png)
+![Connection Diagram](../assets/pi-led-light-sensor-diagram.png)
 
 ### LED
 
@@ -50,7 +50,7 @@ Once you have connected the two components, power up the pi and `ssh` into it ag
 
 Download the test program `simple-gpio.py`
 ```
-wget https://raw.githubusercontent.com/varunmehta/dive-into-iot/master/02-hardware/code/pi/src/simple-gpio.py
+wget https://raw.githubusercontent.com/varunmehta/dive-into-iot/master/code/pi/src/simple-gpio.py
 ```
 
 #### The Program

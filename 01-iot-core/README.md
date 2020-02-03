@@ -9,15 +9,15 @@
  * `ssh` into it
  * once connected, proceed to the next step.
 
-> **Please ensure you are able to connect to the pi, moving forward without being able to ssh into the pi, is be a blocker for this lab.**
+> **Please ensure you are able to connect to the pi, moving forward without being able to ssh into the pi, will not let you try out the lab.**
 
-##### Refresher: Boot, Identify Pi on network
+#### Refresher: Boot, Identify Pi on network
 
 Plug in an ethernet cable into your pi, and wait 1 minute after boot to start looking for the pi on the network
 
 A more detailed write up for [identifing your IP](https://www.raspberrypi.org/documentation/remote-access/ip-address.md) is documented on the offical website.
 
-##### Resolving `<YOUR_PI_NAME>.local` with mDNS
+#### Resolving `<YOUR_PI_NAME>.local` with mDNS
  * Open terminal
  * Type `ping <YOUR_PI_NAME>.local`
  * If the Raspberry Pi is reachable, `ping` will show its IP address
@@ -76,8 +76,6 @@ Certificates are what ensures a secure communication between your Pi and the clo
 > **IMPORTANT: Please ensure you are able to connect to the pi, moving forward without being able to ssh into the pi, is be a blocker for this lab.**
 
 
-
-
 > For the following steps, you can either `ssh` into the pi and make changes there, or make changes on your local and `scp` the files to the pi
 >
 > Feel free to substitute `vim` with your [favourite text editor](https://xkcd.com/1823/)
@@ -109,11 +107,11 @@ Certificates are what ensures a secure communication between your Pi and the clo
  ```
  * Download the config.py file from `code/pi/src/config.py` github to your local machine at `/home/pi/iot`
  ```
- wget https://raw.githubusercontent.com/varunmehta/dive-into-iot/master/01-iot-core/code/pi/src/config.py
-```
+ wget https://raw.githubusercontent.com/varunmehta/dive-into-iot/master/code/pi/src/config.py
+ wget https://raw.githubusercontent.com/varunmehta/dive-into-iot/master/code/pi/src/main.py
+  ```
 
 ### Modify `config.py`
-
 `config.py` has all the modifiable parameters, which are specific to your setup. We'll change some of the parameters as we've set them up for now.
 
 #### End Point URL

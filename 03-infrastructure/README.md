@@ -6,7 +6,7 @@ Time to setup all the AWS resources. In this lab, we'll setup the Lambda Functio
 
 If you are familiar with the AWS console, the lab is fairly quick to perform.
 
-![Infrastructure](dive-into-iot.png)
+![Infrastructure](../assets/dive-into-iot.png)
 
 > If this current documentation feels dated, please refer the official AWS documentation on each of the topics.
 
