@@ -157,6 +157,7 @@ sudo raspi-config
 
 You should see a blue screen with options in a grey box in the center. [`raspi-config`](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) aims to provide the functionality to make the most common configuration changes.
 
+### Select 4. Localization Options under `raspi-config`
 
 #### Change Locale
 Change locale to your local locale `en_US.UTF-8 UTF-8`.
@@ -164,17 +165,19 @@ Change locale to your local locale `en_US.UTF-8 UTF-8`.
 #### Change Time Zone
 Select your local time zone, starting with the region, e.g. `Americas`, then selecting a city, e.g. `New_York`. Type a letter to skip down the list to that point in the alphabet.
 
-#### Change WiFi Country
-
-This option sets the country code for your WiFi network. e.g. Change it to `US` (it might already be done as part of `wpa_supplicant` configuration)
-
 #### Change keyboard layout
 
 This option opens another menu which allows you to select your keyboard layout. It will take a long time to display while it reads all the keyboard types. Changes usually take effect immediately, but may require a reboot.
 
 Choose `US` keyboard, the default is UK and there are character set differences which can cause issues later.
 
+#### Change WiFi Country
+
+This option sets the country code for your WiFi network. e.g. Change it to `US` (it might already be done as part of `wpa_supplicant` configuration)
+
 > After this step a reboot is recommended, before moving on to the last configuration change. This is due to keyboard layout change. After reboot the IP should still be the same.
+
+### Select 2. Network Options under `raspi-config`
 
 #### Change `hostname`
 Set the visible name for this Pi on a network. This is **VERY IMPORTANT**, else you'll not be able to identify your pi in a shared network, especially if all are still called `raspberrypi`. Ensure you make note of the `hostname`, so after reboot you can search for it again, and connect to it.
