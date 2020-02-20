@@ -153,7 +153,7 @@ You'll be shown `raspi-config` on first boot, you can also run it from the comma
 ```
 sudo raspi-config
 ```
-![raspi-screenshot](https://www.raspberrypi.org/documentation/configuration/images/raspi-config.png)
+![raspi-screenshot](../assets/raspi-config.png)
 
 You should see a blue screen with options in a grey box in the center. [`raspi-config`](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) aims to provide the functionality to make the most common configuration changes.
 
