@@ -11,13 +11,35 @@ import config
 
 from gpiozero import LED
 from gpiozero import LightSensor
-from signal import pause
+
+from time import sleep
 
 sensor = LightSensor(config.PIN_LIGHT_SENSOR)
 led = LED(config.PIN_LED)
 
-print ("starting test...")
-sensor.when_dark = led.on
-sensor.when_light = led.off
+def sensor_dark():
+    print("night time?")
+    led.on
 
-pause()
+def sensor_light():
+    print("day time!")
+    led.off
+
+def led_test():
+    print("Turning on LED")
+    led.on()
+    sleep(1)
+    print("Turning off LED")
+    led.off()
+    sleep(1)
+
+print ("starting tests...")
+
+led_test()
+
+while True:
+    sensor.wait_for_active()
+    print("It's light")
+    sensor.wait_for_inactive()
+    print("It's dark")
+

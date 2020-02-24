@@ -190,6 +190,14 @@ The default user on Raspbian is `pi` with the password `raspberry`. You should c
 
 ## Install & Upgrade libraries
 
+### `gpizero`
+
+A simple interface to GPIO devices with Raspberry Pi. Component interfaces are provided to allow a frictionless way to get started with physical computing. The library includes interfaces to many simple everyday components, as well as some more complex things like sensors, analogue-to-digital converters, full colour LEDs, robotics kits and more.
+
+```
+sudo apt install python3-gpiozero
+```
+
 ### `vim`
 
 `vi` is installed, but `vim` is easier to work with.

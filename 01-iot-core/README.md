@@ -116,7 +116,14 @@ Certificates are what ensures a secure communication between your Pi and the clo
 
 #### End Point URL
 
-Your Thing has an iot end point, it gets assigned a unique id, which is part of the url. Replace the `<URL>` under `HOST_NAME` to the valid id.
+Your Thing has an iot end point, it gets assigned a unique id, which is part of the url.
+
+* Go to list of **Things**
+* Click on your **Thing**
+* Select **Interact** from the menu on the left.
+* Check the `url` under **HTTPS** 
+
+Replace the `<URL>` under `HOST_NAME` to the valid id.
 ```
 # AWS IoT endpoint settings
 HOST_NAME = "<URL>-ats.iot.us-east-1.amazonaws.com"
