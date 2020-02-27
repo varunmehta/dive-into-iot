@@ -26,20 +26,21 @@ def sensor_light():
     led.off
 
 def led_test():
-    print("Turning on LED")
+    print(" ...ON")
     led.on()
     sleep(1)
-    print("Turning off LED")
+    print(" ...OFF")
     led.off()
     sleep(1)
 
-print ("starting tests...")
-
+print ("Running LED test...")
 led_test()
+print ("Bye!")
 
-while True:
-    sensor.wait_for_active()
-    print("It's light")
-    sensor.wait_for_inactive()
-    print("It's dark")
 
+# while True:
+#     sensor.wait_for_active()
+#     print("It's light")
+#     sensor.wait_for_inactive()
+#     print("It's dark")
+#

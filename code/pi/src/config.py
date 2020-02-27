@@ -15,7 +15,7 @@ DEVICE_CERT = "/home/pi/iot/certs/certificate.pem.crt"
 ROOT_CERT = "/home/pi/iot/certs/root-CA.crt"
 
 # Message settings
-PHOTO_RESISTOR_SENSOR = "$aws/things/<YOUR_THING_NAME>/sensor"
+SENSOR = "$aws/things/<YOUR_THING_NAME>/sensor"
 FLASHER = "$aws/things/<YOUR_THING_NAME>/flasher"
 QOS_LEVEL = 1
 

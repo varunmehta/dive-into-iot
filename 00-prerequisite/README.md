@@ -190,26 +190,37 @@ The default user on Raspbian is `pi` with the password `raspberry`. You should c
 
 ## Install & Upgrade libraries
 
+```
+sudo apt-get install python3-gpiozero vim python3-pip
+```
+
 ### `gpizero`
 
 A simple interface to GPIO devices with Raspberry Pi. Component interfaces are provided to allow a frictionless way to get started with physical computing. The library includes interfaces to many simple everyday components, as well as some more complex things like sensors, analogue-to-digital converters, full colour LEDs, robotics kits and more.
 
-```
-sudo apt install python3-gpiozero
-```
+### `pip3`
+
+Not all Python packages are available in the Raspbian archives, and those that are can sometimes be out-of-date. If you can't find a suitable version in the Raspbian archives, you can install packages from the Python Package Index (PyPI). To do so, use the pip tool.
+
 
 ### `vim`
 
 `vi` is installed, but `vim` is easier to work with.
 
-```
-sudo apt-get install vim
-```
-
 For all other editors. Please refer: [this link](https://xkcd.com/378/)
 
 ![vim](https://imgs.xkcd.com/comics/real_programmers.png)
 
+
+### aws-iot-device-sdk-python
+
+> Install `python3-pip` first
+
+```
+pip3 install AWSIoTPythonSDK
+```
+
+### System upgrade!
 Now that you have your pi up and running, it is a good idea to update the system
 
 ```

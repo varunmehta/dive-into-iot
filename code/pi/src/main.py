@@ -7,7 +7,6 @@
 import json
 import config
 import logging
-import rekognize
 
 from gpiozero import LED
 from gpiozero import LightSensor
@@ -18,31 +17,6 @@ from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 # LightSensor is connected to this pin.
 sensor = LightSensor(config.PIN_LIGHT_SENSOR)
 led = LED(config.PIN_LED)
-
-
-def open_too_long_alert():
-    """
-        When the door is open for too long, you can send an SNS alert.
-    """
-    lps("LONG_OPEN")
-
-
-def garage_status(status):
-    """
-        Send a message to DynamoDB and log the status of the garage door.
-        The TTL of the message should be 45 days.
-    """
-    lps(status)
-
-
-def garage_opened():
-    garage_status("OPEN")
-    switch_led_color("open")
-
-
-def garage_closed():
-    garage_status("CLOSE")
-    switch_led_color("close")
 
 
 def lps(message):
@@ -60,64 +34,28 @@ def lps(message):
     message = json.dumps(message)
     message = json.loads(message)
     try:
-        client.publishAsync(config.TOPIC_SENSOR, message, 0)
+        client.publishAsync(config.SENSOR, message, 0)
     except AWSIoTMQTTClient.exception.AWSIoTExceptions.publishTimeoutException as e:
         print(e)
 
 
-def register_door_sensors():
+def blink_led(led_cmd):
     """
-        Magnetic Reed Switch callback methods to be called on change in state.
-    """
-
-    sensor.when_activated = garage_opened
-    sensor.when_deactivated = garage_closed
-    sensor.when_held = open_too_long_alert
-
-    if sensor.is_active | sensor.value == 1:
-        lps("Garage door is currently open.")
-    elif sensor.is_held | sensor.value == 0:
-        lps("Garage door is currently closed")
-    else:
-        lps("Garage door status UNKNOWN, please verify manually")
-
-
-def open_close_garage(garage):
-    """
-        Meat of the logic to handle garage door open-close.
-        Opening or closing of the garage will be triggered based of what the sensor state is. Without the reed switch,
-        there is no way for the pi to know if the garage door is opened or closed.
-        TODO: test direction with real motor
+        Logic to turn led on-off.
     """
     now = datetime.now().strftime("%m/%d/%Y, %H:%M:%S.%f")
 
-    print('[ ' + now + ' ] Sensor state [0: closed, 1: open] = ' + str(sensor.value))
+    print('[ ' + now + ' ] ' + led_cmd )
 
-    if garage == "open":
-        if sensor.value == 1:
-            lps("Garage already open. Nothing to open")
-        elif sensor.value == 0:
-            lps("Opening the garage...")
-            switch_led_color("moving")
-            motor.forward()
-            sleep(3)
-            motor.stop()
-
-    if garage == "close":
-        if sensor.value == 0:
-            lps("Garage already closed. Nothing to close")
-        elif sensor.value == 1:
-            lps("Closing the garage...")
-            switch_led_color("moving")
-            motor.backward()
-            sleep(3)
-            motor.stop()
-
-    if garage == "stop":
-        lps("Stopping garage door")
-        motor.stop()
-
-    led.blink()
+    if led_cmd == "blink":
+        led.on()
+        sleep(1)
+        print(" ...OFF")
+        led.off()
+        lps("blinked")
+    else:
+        print("garbage command")
+        lps("garbage command received")
 
 
 def handle_subscription(client, userdata, message):
@@ -126,11 +64,12 @@ def handle_subscription(client, userdata, message):
         Where message contains topic and payload.
         Note: client and userdata are pending to be deprecated and should not be depended on.
     """
+    payload = message.payload
+    payload = payload.decode('utf-8')
+    print(payload)
     # for now printing message, figure out more on payload and play with it.
-    lps("Request received on topic: " + str(message.topic) + ", with payload: " + str(message.payload))
-    message_data = json.loads(message.payload)
-    action = message_data["action"]
-    open_close_garage(action)
+    lps("Request received on topic: " + str(message.topic) + ", with payload: " + payload)
+    blink_led(payload)
 
 
 # Configure logging
@@ -151,23 +90,12 @@ client.configureOfflinePublishQueueing(-1)
 client.configureDrainingFrequency(2)
 client.configureConnectDisconnectTimeout(10)
 client.configureMQTTOperationTimeout(5)
-client.subscribe(config.TOPIC_DOOR, 1, handle_subscription)
-client.subscribe(config.TOPIC_ASK_SENSOR, 0, reply_garage_status)
+client.subscribe(config.FLASHER, 1, handle_subscription)
 
 # Connect
 print('Connecting to endpoint ' + config.HOST_NAME)
 
 client.connect()
-
-register_door_sensors()
-
-# Register rekognize
-rekognize.main(client)
-
-"""
-For the main method, first register sensors, and then for every subscription, add a call back,
-which opens/closes garage.
-"""
 
 while True:
     """

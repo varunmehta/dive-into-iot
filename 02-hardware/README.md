@@ -105,33 +105,13 @@ sensor.when_light = sensor_light
 python3 simple-gpio.py
 ```
 
+> The sensor was not working when I last tested, needed an additional capacitor
+
  * Cover the photocell with your hand, or a cup.
  * The LED should turn on
  * Shine light on the photocell, the LED should turn off.
 
 > If the LED does not turn on, please verify your connections again.
-
-## Other hardware thumb rules (General reading for later)
-
-This section is not relevant to the lab, but added for extra reading later.
-
-### Connecting multiple hardware
-
-The 3.3V pin of the pin, does not give more than 50mA. If you want to control a LED strip, or multiple components, make sure each of them have their own power supply.
-
-
-### HATs & pHATs
-You can extend your pi with more external hardware using different types of **HATs** (**H**ardware **A**ttached on **T**op) or **pHATs** (for Pi Zero's).
-
-Some of my favourite HATs and pHATs are made by [**Pimoroni**](https://shop.pimoroni.com/collections/hats);
- * [Sense Hat](https://www.raspberrypi.org/products/sense-hat/)
- * [Ubercorn & Unicorn HAT](https://shop.pimoroni.com/products/ubercorn)
- * [Enviro + Air](https://shop.pimoroni.com/products/enviro?variant=31155658457171)
- * [Automation HAT](https://shop.pimoroni.com/products/automation-hat)
- * [Inky pHAT](https://shop.pimoroni.com/products/inky-phat?variant=12549254217811)
-
-Most of that HATs and pHATs have their own python library with good examples and community support.
-
 
 ## Next --> [03 - Build AWS supporting infrastructure](../03-infrastructure)
 This concludes our hardware wiring. Let build the AWS infrastructure to get to the cloud...

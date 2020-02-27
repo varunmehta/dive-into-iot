@@ -40,18 +40,13 @@ We need a simple DynamoDB table to capture the IoT data received from the sensor
 
 | Column | Type | Purpose |
 | ----- |------| --------|
-|Item   | String  | This is the partion key, and also the hardware component for which the data is being registered.  |
-|State   | String   | What did the sensor read (dark/light) |
+|Item   | String  | This is the partition key, and also the hardware component for which the data is being registered.  |
+|State   | String   | What did the sensor read (dark/light), or current LED status |
 |Level   | Number  | Amount of light detected by sensor  |
-|Timestamp   | Datetime  | Time the event occured  |
+|Timestamp   | Datetime  | Time the event occurred  |
 | ExpirationTime(TTL)  | TTL   | Time to live, after which the data will be deleted, so we can keep our tables clean |
 
-## IoT Rule
-[**IoT Rules**](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html) are a new introduction to the IoT core. Instead of using Lambda functions to be triggered off an MQTT event and then handle the payload, there are now rules in place which allow you to directly channel/process data to different AWS services.
-
-Refer the [official documentation](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html) for the list of possible options available.
-
-## Lambda Function
+## Lambda Function to turn on LED
 
 A simple python lambda function to process API request and send it as an MQTT message to the pi.
 
@@ -77,18 +72,18 @@ import boto3
 
 print('Received message from API gateway')
 
+
 def lambda_handler(event, context):
 
     print ('Lambda Invoked')
     client = boto3.client('iot-data', region_name='us-east-1')
-    print(event['body'])
-    print(type(event['body']))
+    print(event)
 
     # Change topic, qos and payload as appropriate.
     response = client.publish(
-        topic='$aws/things/<YOUR_THING_NAME>/flasher',
+        topic='$aws/things/FlyingZombieAttach_Pi/flasher',
         qos=1,
-        payload=event['body']
+        payload=str(event['led'])
     )
 
     print('Response')
@@ -104,7 +99,7 @@ def lambda_handler(event, context):
 
 ### Other Settings
 
- * Under **Environment variables**, add valid, useful variables, which will help you identify this lambda function, if using a shared account.
+ * Under **Tags**, add valid, useful tags, which will help you identify this lambda function, if using a shared account.
  * Change **Description** of lambda function under **"Basic Settings"**
  * Leave the rest of the settings as is for now.
 
@@ -150,6 +145,65 @@ Your API should now send you to a new screen
  * A new screen with **Invoke URL** on a blue highlight should pop-up.
  * Copy this URL to a text editor. This is the URL, where the API is published.
    * `https://<YOUR_URL>.execute-api.us-east-1.amazonaws.com/lab/flasher`
+
+
+## Lambda Function to Log LED status (this might not work)
+> something is missing in config 
+
+Every time the LED glows or a garbage message is received, it gets logged to DynamoDB
+
+### Steps to create one
+
+ * Got to [Lambda Console](https://console.aws.amazon.com/lambda)
+ * Click **Create function** to create a new function.
+ * Select **Use a blueprint**
+ * Under the **Blueprints** search, type "Hello"
+ * Select `hello-world-python`
+ * Click **Configure**
+ * Give a useful **Function Name** e.g. `<YOUR_THING_NAME>-logger`
+ * **Use an existing role**, and pick the role you've created in the **IAM Role section** above.
+ * Click **Create Function**  to actually create a function.
+
+### The function
+
+```
+import boto3
+from datetime import datetime
+
+'''
+Will be called by the Pi to update the Last Known Good State in Dynamo
+'''
+
+def lambda_handler(event, context):
+    dynamo = boto3.client("dynamodb")
+    now = datetime.now()
+
+    item = {
+        "received_timestamp": {
+            "S": now.strftime("%m/%d/%Y, %H:%M:%S.%f")
+        },
+        "timestamp": {
+          "S": event["timestamp"]  
+        },
+        "status": {
+            "S": event["state"]
+        }
+    }
+
+    response = dynamo.put_item(TableName="<YOUR_THING_NAME>-EventLog", Item=item, ReturnConsumedCapacity='TOTAL')
+
+    return {
+        'statusCode': 200,
+        'body': response
+    }
+```
+
+## IoT Rule (the new way)
+[**IoT Rules**](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html) are a new introduction to the IoT core. Instead of using Lambda functions to be triggered off an MQTT event and then handle the payload, there are now rules in place which allow you to directly channel/process data to different AWS services.
+
+Refer the [official documentation](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html) for the list of possible options available.
+
+> There is a way to directly write to DynamoDB without using the lambda function, but I've not explored this option, if you find it, please create a PR and I can update this documentation.
 
 ## Next --> [04 - Bringing it all together](../04-end-to-end)
 This concludes our AWS infrastructure creation. Time to test the whole thing!
