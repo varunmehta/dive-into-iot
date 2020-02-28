@@ -19,3 +19,7 @@ Some of my favourite HATs and pHATs are made by [**Pimoroni**](https://shop.pimo
  * [Inky pHAT](https://shop.pimoroni.com/products/inky-phat?variant=12549254217811)
 
 Most of that HATs and pHATs have their own python library with good examples and community support.
+
+## Use cases
+
+![Use Cases](../assets/iot-use-cases.png)
