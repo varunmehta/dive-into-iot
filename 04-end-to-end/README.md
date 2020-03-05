@@ -22,20 +22,14 @@ python3 main.py
 The program runs an infinite loop, and will only exit when you kill it.
 > ^C to kill it
 
-## Switching the LED on/off using API
+## Blinking the LED on/off using API
 
 Get the URL of the API gateway from the notepad.
 
-### Payload to turn on LED
+### Payload to blink LED
 
 ```
-{ "led" : "on" }
-```
-
-### Payload to turn off LED
-
-```
-{ "led" : "off" }
+{ "led" : "blink" }
 ```
 
 ### cURL command
@@ -43,13 +37,13 @@ Get the URL of the API gateway from the notepad.
 ```
 curl -XPOST \s
      -H "Content-Type: application/json" \
-     -d '{ "led" : "off" }' \
+     -d '{ "led" : "blink" }' \
      https://<YOUR_URL>.execute-api.us-east-1.amazonaws.com/lab/flasher
 ```
 
 You can use postman to make these calls too.
 
-## Verify the photocell data in DynamoDB
+## Verify the led blink data in DynamoDB
 
 The second part of the test is to verify if the photocell data is being pushed to DynamoDB.
 
@@ -65,7 +59,7 @@ You've now completed the lab successfully.
 
 ## What next ?
 
-This is just the start of securly communicating information between the pi & any AWS service. You can connect any sensor or controller to the pi, provide an interface and control it over the internet securely.
+This is just the start of securely communicating information between the pi & any AWS service. You can connect any sensor or controller to the pi, provide an interface and control it over the internet securely.
 
  * Capture images via the [pi-camera](https://www.raspberrypi.org/products/camera-module-v2/), send it to rekognition for image processing.
  * Run [Sagemaker-Neo](https://aws.amazon.com/sagemaker/neo/) and run ML models on edge devices.
