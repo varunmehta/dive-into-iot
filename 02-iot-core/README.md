@@ -1,4 +1,4 @@
-# Step 1 - IoT Core
+# Step 2 - IoT Core
 
 > Approximate time: 20-25 minutes
 
@@ -121,7 +121,7 @@ Your Thing has an iot end point, it gets assigned a unique id, which is part of 
 * Go to list of **Things**
 * Click on your **Thing**
 * Select **Interact** from the menu on the left.
-* Check the `url` under **HTTPS** 
+* Check the `url` under **HTTPS**
 
 Replace the `<URL>` under `HOST_NAME` to the valid id.
 ```
@@ -147,5 +147,5 @@ PHOTO_RESISTOR_SENSOR = "$aws/things/<YOUR_THING_NAME>/sensor"
 FLASHER = "$aws/things/<YOUR_THING_NAME>/flasher"
 ```
 
-## Next --> [02 - Setup Hardware](../02-hardware)
-This concludes our setup of the basic IoT Core on the console and Pi. Let do some hardware wiring...
+## Next --> [03 - Build AWS supporting infrastructure](../03-infrastructure)
+This concludes our setup of the basic IoT Core on the console and Pi. Let build the supporting AWS infrastructure to get to the cloud...

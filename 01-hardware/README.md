@@ -1,4 +1,4 @@
-# Step 2 - Hardware Wiring
+# Step 1 - Hardware Wiring
 
 > Approximate time: 10-15 minutes
 
@@ -29,7 +29,7 @@ A GPIO pin designated as an input pin can be read as high (3.3V) or low (0V). Th
 
 When you hold the LED, the longer leg is the `anode` or the **positive** terminal. This is always connected to the GPIO pin, and the `cathode` or the **negative** terminal is connected to `ground` (return, to complete the circuit).
 
- * Connect anode of the LED to `GPIO18`
+ * Connect anode of the LED to `GPIO23`
    * Always add a resistor in the circuit, when connecting an LED
  * Connect the cathode of the LED to `GND` (return circuit).
 
@@ -41,7 +41,7 @@ LEDs are generally rated for 2.1V, 20 to 30 mA. It is always recommended to run 
 
 The photo resistor is pretty straight forward to connect.
 
- * Connect one terminal of the cell to `GPIO16`.
+ * Connect one terminal of the cell to `GPIO18`.
  * Connect the other terminal of the cell to `GND`.
 
 ### Test
@@ -113,5 +113,5 @@ python3 simple-gpio.py
 
 > If the LED does not turn on, please verify your connections again.
 
-## Next --> [03 - Build AWS supporting infrastructure](../03-infrastructure)
-This concludes our hardware wiring. Let build the AWS infrastructure to get to the cloud...
+## Next --> [02 - Setup IoT Core](../02-iot-core)
+This concludes our hardware wiring. Let setup the IoT core...

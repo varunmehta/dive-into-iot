@@ -74,9 +74,11 @@ Since most IoT devices are remote, using the Lite (headless) version is recommen
 
 [SSH access is disabled by default](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md)
 
-For headless setup, SSH can be enabled by placing a file named `ssh`, without any extension, onto the `boot` partition of the SD card from another computer. When the Pi boots, it looks for the `ssh` file. If it is found, SSH is enabled and the file is deleted. The content of the file does not matter; it could contain text, or nothing at all.
+For headless setup, SSH can be enabled by placing a new file named `ssh`, without any extension, onto the `boot` partition of the SD card from another computer. When the Pi boots, it looks for the `ssh` file. If it is found, SSH is enabled and the file is deleted. The content of the file does not matter; it could contain text, or nothing at all.
 
 If you have loaded Raspbian onto a blank SD card, you will have two partitions. The first one, which is the smaller one, is the `boot` partition. Place the file into this one.
+
+Using command line, `cd` into the folder, `touch ssh` to create a new file.
 
 This method also works for a GUI based Raspbian.
 
@@ -227,9 +229,7 @@ Now that you have your pi up and running, it is a good idea to update the system
 sudo apt-get update
 sudo apt-get full-upgrade
 ```
-
 All the basic tools needed to get you pi for the lab are now set!
 
-
-## Next --> [01 - Setup IoT Core](../01-iot-core)
-This concludes prepping your pi.
+## Next --> [01 - Setup Hardware](../01-hardware)
+This concludes prepping your pi. Let do some hardware wiring...

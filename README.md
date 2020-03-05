@@ -2,7 +2,6 @@
 
 > Approximate time: 90 minutes
 
-
 Welcome to **Dive into IoT**. This is a simple hands on lab to get you started with AWS IoT using the Raspberry Pi.
 
 > If you have landed on this repository from an email about the hands on session, then just follow [**00 - Prerequisite**](00-prerequisite), and keep your Pi ready for the hands on lab. If you want to follow ahead on your own, you are more than welcome. Also refer the official documentation, **[Getting Started with AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/iot-gs.html)** for any unanswered questions you might have.
@@ -43,8 +42,8 @@ We are going to transfer files between the Pi and your local machine, and also t
 
 ## How will we do ?
  * **[00 - Prerequisite](/00-prerequisite)** ~ Follow this to ready your pi for the hands on lab.
- * **[01 - Setup IoT Core](/01-iot-core)**
- * **[02 - Setup Hardware](/02-hardware)**
+ * **[01 - Setup Hardware](/01-hardware)**
+ * **[02 - Setup IoT Core](/02-iot-core)**
  * **[03 - Build AWS supporting infrastructure](/03-infrastructure)**
  * **[04 - End-to-end connections](/04-end-to-end)**
 
